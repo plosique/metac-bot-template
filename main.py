@@ -1,5 +1,6 @@
 import argparse
 import asyncio
+import json
 import logging
 from datetime import datetime
 from typing import Literal
@@ -24,6 +25,34 @@ from forecasting_tools import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def load_bot_config(bot_mode: str) -> dict:
+    """Load bot configuration from bots.json based on mode"""
+    try:
+        with open("bots.json", "r") as f:
+            config = json.load(f)
+        
+        bot_config = config.get(bot_mode, {})
+        
+        # Convert researcher config to GeneralLlm if it's a dict
+        if "researcher" in bot_config and isinstance(bot_config["researcher"], dict):
+            researcher_config = bot_config["researcher"]
+            bot_config["researcher"] = GeneralLlm(**researcher_config)
+        
+        # Convert default (predictor) config to GeneralLlm if it's a dict
+        if "default" in bot_config and isinstance(bot_config["default"], dict):
+            default_config = bot_config["default"]
+            bot_config["default"] = GeneralLlm(**default_config)
+            
+        return bot_config
+        
+    except FileNotFoundError:
+        logger.warning("bots.json not found, using default configuration")
+        return {}
+    except Exception as e:
+        logger.error(f"Error reading bots.json: {e}")
+        return {}
 
 
 class FallTemplateBot2025(ForecastBot):
@@ -391,14 +420,26 @@ if __name__ == "__main__":
         default="tournament",
         help="Specify the run mode (default: tournament)",
     )
+    parser.add_argument(
+        "--bot-mode",
+        type=str,
+        choices=["template", "debug", "main"],
+        default="template",
+        help="Specify the bot mode (default: template)",
+    )
     args = parser.parse_args()
     run_mode: Literal["tournament", "metaculus_cup", "test_questions"] = args.mode
+    bot_mode: Literal["template", "debug", "main"] = args.bot_mode
     assert run_mode in [
         "tournament",
         "metaculus_cup",
         "test_questions",
     ], "Invalid run mode"
+    assert bot_mode in ["template", "debug", "main"], "Invalid bot mode"
 
+    # Load bot configuration based on mode
+    llm_config = load_bot_config(bot_mode)
+    
     template_bot = FallTemplateBot2025(
         research_reports_per_question=1,
         predictions_per_research_report=5,
@@ -406,17 +447,7 @@ if __name__ == "__main__":
         publish_reports_to_metaculus=True,
         folder_to_save_reports_to=None,
         skip_previously_forecasted_questions=True,
-        # llms={  # choose your model names or GeneralLlm llms here, otherwise defaults will be chosen for you
-        #     "default": GeneralLlm(
-        #         model="openrouter/openai/gpt-4o", # "anthropic/claude-3-5-sonnet-20241022", etc (see docs for litellm)
-        #         temperature=0.3,
-        #         timeout=40,
-        #         allowed_tries=2,
-        #     ),
-        #     "summarizer": "openai/gpt-4o-mini",
-        #     "researcher": "asknews/deep-research/low",
-        #     "parser": "openai/gpt-4o-mini",
-        # },
+        llms=llm_config if llm_config else None,
     )
 
     if run_mode == "tournament":

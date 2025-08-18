@@ -18,13 +18,13 @@ from forecasting_tools import (
     run_benchmark_streamlit_page,
 )
 
-from main import TemplateForecaster
+from main import FallTemplateBot2025, load_bot_config
 
 logger = logging.getLogger(__name__)
 
 
 
-async def benchmark_forecast_bot(mode: str) -> None:
+async def benchmark_forecast_bot(mode: str, bot_mode: str = "template") -> None:
     """
     Run a benchmark that compares your forecasts against the community prediction
     """
@@ -57,24 +57,17 @@ async def benchmark_forecast_bot(mode: str) -> None:
         raise ValueError(f"Invalid mode: {mode}")
 
     with MonetaryCostManager() as cost_manager:
+        # Load bot configuration based on mode
+        llm_config = load_bot_config(bot_mode)
+        
         bots = [
-            TemplateForecaster(
+            FallTemplateBot2025(
                 predictions_per_research_report=5,
-                llms={
-                    "default": GeneralLlm(
-                        model="gpt-4o-mini",
-                        temperature=0.3,
-                    ),
-                },
+                llms=llm_config if llm_config else None,
             ),
-            TemplateForecaster(
+            FallTemplateBot2025(
                 predictions_per_research_report=1,
-                llms={
-                    "default": GeneralLlm(
-                        model="gpt-4o-mini",
-                        temperature=0.3,
-                    ),
-                },
+                llms=llm_config if llm_config else None,
             ),
             # Add other ForecastBots here (or same bot with different parameters)
         ]
@@ -123,10 +116,16 @@ if __name__ == "__main__":
         default="display",
         help="Specify the run mode (default: display)",
     )
-    args = parser.parse_args()
-    mode: Literal["run", "custom", "display"] = (
-        args.mode
+    parser.add_argument(
+        "--bot-mode",
+        type=str,
+        choices=["template", "debug", "main"],
+        default="template",
+        help="Specify the bot mode (default: template)",
     )
-    asyncio.run(benchmark_forecast_bot(mode))
+    args = parser.parse_args()
+    mode: Literal["run", "custom", "display"] = args.mode
+    bot_mode: Literal["template", "debug", "main"] = args.bot_mode
+    asyncio.run(benchmark_forecast_bot(mode, bot_mode))
 
 
