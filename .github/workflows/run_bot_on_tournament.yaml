@@ -2,6 +2,16 @@ name: Forecast on new AI tournament questions
 
 on:
   workflow_dispatch:
+    inputs:
+      bot_mode:
+        description: 'Bot configuration mode'
+        required: false
+        default: 'debug'
+        type: choice
+        options:
+        - template
+        - debug
+        - main
   schedule:
     - cron: "*/20 * * * *" # runs every 20 minutes. Make sure to skip already forecasted questions!
 
@@ -39,7 +49,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Run bot
         run: |
-          poetry run python main.py
+          poetry run python main.py --bot-mode ${{ inputs.bot_mode || 'debug' }}
         # this reads the environment variables from the github repository.
         # Store under Settings --> Secrets and variables --> Actions
         env:
