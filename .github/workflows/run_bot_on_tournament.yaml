@@ -6,7 +6,7 @@ on:
       bot_mode:
         description: 'Bot configuration mode'
         required: false
-        default: 'debug'
+        default: 'main_with_researcher'
         type: choice
         options:
         - template
@@ -22,7 +22,7 @@ on:
       predictions_per_research:
         description: 'Number of predictions per research report'
         required: false
-        default: '1'
+        default: '3'
         type: string
   schedule:
     - cron: "*/20 * * * *" # runs every 20 minutes. Make sure to skip already forecasted questions!
