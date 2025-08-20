@@ -26,6 +26,32 @@
       "kl_threshold": 0.01
     }
   },
+  "debug_with_researcher": {
+    "researcher": {
+      "model": "perplexity/sonar",
+      "temperature": 0.1,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "debater1": {
+      "model": "openrouter/deepseek/deepseek-chat-v3-0324",
+      "temperature": 0.3,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "debater2": {
+      "model": "openrouter/moonshotai/kimi-k2",
+      "temperature": 0.3,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "parser": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "summarizer": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "debate_config": {
+      "max_turns": 3,
+      "kl_threshold": 0.01
+    }
+  },
   "main": {
     "researcher": {
       "model": "openrouter/deepseek/deepseek-chat-v3-0324",
@@ -40,7 +66,33 @@
       "allowed_tries": 2
     },
     "debater2": {
+      "model": "openrouter/anthropic/claude-opus-4.1",
+      "temperature": 0.3,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "parser": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "summarizer": "openrouter/openai/gpt-4o-mini",
+    "debate_config": {
+      "max_turns": 3,
+      "kl_threshold": 0.1
+    }
+  },
+  "main_with_researcher": {
+    "researcher": {
+      "model": "perplexity/sonar",
+      "temperature": 0.1,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "debater1": {
       "model": "openrouter/openai/gpt-5-chat",
+      "temperature": 0.3,
+      "timeout": 40,
+      "allowed_tries": 2
+    },
+    "debater2": {
+      "model": "openrouter/anthropic/claude-opus-4.1",
       "temperature": 0.4,
       "timeout": 40,
       "allowed_tries": 2

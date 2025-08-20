@@ -1,0 +1,603 @@
+[
+    {
+        "question": {
+            "question_text": "#4 - Will the Tiger Point Wastewater Treatment Facility expansion stay within its $64 million budget through the end of 2025?",
+            "id_of_post": 38951,
+            "page_url": "https://www.metaculus.com/questions/38951",
+            "id_of_question": 38291,
+            "state": "open",
+            "num_forecasters": 12,
+            "num_predictions": 19,
+            "resolution_criteria": "![](https://metaculus-web-media.s3.amazonaws.com/user_uploaded/DJI_0883-1024x576.jpg)\n\n**Scroll past this section and down to the Background section for context, additional resources, news stories, and for why this question is important for our community.**\n\nThis question will resolve **Yes** if official reports from the City of Gulf Breeze confirm that the Tiger Point WWTF expansion remains at or below a \\$64 million total cost as of December 31, 2025. If the project exceeds that budget by that date, it will resolve **No**. City council meeting records, budget updates, or published city financial reports will serve as the basis for resolution.",
+            "fine_print": "",
+            "background_info": "Gulf Breeze is expanding its Tiger Point Wastewater Treatment Facility to increase capacity and support future growth. This \\$64 million project is crucial for improving sewer infrastructure and transitioning neighborhoods from septic to sewer systems. The City is funding it through a mix of federal and state grants and a new \\$14 monthly capital improvement fee on utility bills.\n\nFrom the [city project page for the 1.5 MGD Expansion for Tiger Point Waste Water Treatment Facility:](https://cityofgulfbreeze.us/city_project/1-5-mgd-expansion-for-tiger-point-waste-water-treatment-facility/)\n\n> The Project Area is in Tiger Point. The work includes the construction of infrastructure to expand the treatment capacity of the existing wastewater treatment plant from 2.0 million gallons per day to 3.5 million gallons per day. The infrastructure includes constructing new oxidation ditches, water clarifiers, filters, and all other components necessary for a complete and operational wastewater treatment facility. It also includes the rehab and refurbishing of existing Bardenpho reactors to additional water reject storage tanks.\n\nBids were opened early 2024, and the bid was awarded April 2024. Construction began August 2024, and the estimated completion date for the project is January 2027. Construction is currently at 25% complete.\n\nThis forecast asks: by the end of 2025, will the total projected or actual cost of the project still be within the \\$64 million budget set in spring 2025?\n\n## City of Gulf Breeze Project Information\n\n* **Official project page:**\n  [1.5 MGD Expansion for Tiger Point Wastewater Treatment Facility](https://cityofgulfbreeze.us/city_project/1-5-mgd-expansion-for-tiger-point-waste-water-treatment-facility/)\n  *Contains detailed scope, funding info, project contacts, timeline (last updated April 2025, with active construction and budget information).*\n* **City's explanation of the \\$14 monthly sewer capital fee:**\n  [Sewer Capital Fee - City of Gulf Breeze](https://cityofgulfbreeze.us/proposed-sewer-capital-fee/)\n  *Explains how the \\$64 million project is funded, the city council\u2019s May 2024 vote, and why the new fee structure was chosen. Useful for understanding budget, grants, and fees.*\n\n***\n\n## Recent News Stories\n\n* **News overview of funding and fee changes:**\n  [Gulf Breeze will add \\$14 to customer bills to help fund wastewater expansion (WEAR-TV)](https://weartv.com/news/local/gulf-breeze-wants-to-add-14-to-customers-bill-to-help-fund-wastewater-treatment-expansion)\n  *Covers council approval, why the budget changed, and the project\u2019s broader role in eliminating septic systems (May 2025).*\n* **News feature on project impact and costs:**\n  [Gulf Breeze-area sewer costs are set to increase. Here's how much ... (Yahoo News)](https://www.yahoo.com/news/gulf-breeze-area-sewer-costs-090436348.html)\n  *Breaks down the city\u2019s search for \\$32 million, the role of grants, and cost drivers (April 2025).*\n\n***\n\n## Related Public Funding Documents\n\n* **Santa Rosa County RESTORE Act funding plan (Federal Grants):**\n  [Santa Rosa County MYP Amendment 2 - Treasury Department (PDF)](https://home.treasury.gov/system/files/216/SantaRosaCounty-MYP-Amendment2--2021.pdf)\n  *Lists the Tiger Point WWTF expansion, federal and state funding streams, and some historic cost baselines (though the numbers are a little older).*\n\n***\n\n## City Council, Meetings, and Budget Sources\n\n* **Search City Council agendas and records:**\n  [Gulf Breeze City Council Meetings and Agendas](https://cityofgulfbreeze.civicweb.net/Portal/)\n  *Where official meeting documents, resolutions, and updates are posted. You can search here for the latest.*\n\nIf you have thoughts about project costs, funding, or priorities\u2014feel free to share in the comments!",
+            "unit_of_measure": "",
+            "close_time": "2026-01-01T05:58:00",
+            "actual_resolution_time": null,
+            "scheduled_resolution_time": "2026-01-01T05:59:00",
+            "published_time": "2025-07-28T18:00:00",
+            "open_time": "2025-07-28T18:01:00",
+            "date_accessed": "2025-08-18T14:59:04.003058",
+            "already_forecasted": true,
+            "tournament_slugs": [
+                "GB"
+            ],
+            "default_project_id": 32810,
+            "includes_bots_in_aggregates": false,
+            "cp_reveal_time": "2025-07-28T18:02:00",
+            "question_weight": 1.0,
+            "resolution_string": null,
+            "group_question_option": "",
+            "api_json": {
+                "id": 38951,
+                "title": "#4 - Will the Tiger Point Wastewater Treatment Facility expansion stay within its $64 million budget through the end of 2025?",
+                "short_title": "#4 - Will the Tiger Point Wastewater Treatment Facility expansion stay in budget",
+                "url_title": "#4 - Will the Tiger Point Wastewater Treatment Facility expansion stay in budget",
+                "slug": "4-will-the-tiger-point-wastewater-treatment-facility-expansion-stay-in-budget",
+                "author_id": 103275,
+                "author_username": "christian",
+                "coauthors": [],
+                "created_at": "2025-07-28T17:22:38.097130Z",
+                "published_at": "2025-07-28T18:00:00Z",
+                "edited_at": "2025-08-18T20:49:41.008056Z",
+                "curation_status": "approved",
+                "curation_status_updated_at": "2025-07-28T17:50:21.487032Z",
+                "comment_count": 0,
+                "status": "open",
+                "resolved": false,
+                "actual_close_time": null,
+                "scheduled_close_time": "2026-01-01T05:58:00Z",
+                "scheduled_resolve_time": "2026-01-01T05:59:00Z",
+                "open_time": "2025-07-28T18:01:00Z",
+                "nr_forecasters": 12,
+                "html_metadata_json": null,
+                "projects": {
+                    "tournament": [
+                        {
+                            "id": 32810,
+                            "type": "tournament",
+                            "name": "City of Gulf Breeze Forecasting Contest",
+                            "slug": "GB",
+                            "header_image": "https://metaculus-web-media.s3.amazonaws.com/Screenshot_2025-07-08_at_12.21.14AM.png",
+                            "prize_pool": "3000.00",
+                            "start_date": "2025-07-28T18:03:58Z",
+                            "close_date": "2025-12-31T12:59:59Z",
+                            "forecasting_end_date": "2025-12-31T12:59:59Z",
+                            "meta_description": "",
+                            "is_ongoing": true,
+                            "user_permission": null,
+                            "created_at": "2025-07-08T05:22:00.173558Z",
+                            "edited_at": "2025-08-18T20:49:41.256376Z",
+                            "score_type": "peer_tournament",
+                            "default_permission": "forecaster",
+                            "visibility": "unlisted",
+                            "is_current_content_translated": false,
+                            "bot_leaderboard_status": "exclude_and_show"
+                        }
+                    ],
+                    "default_project": {
+                        "id": 32810,
+                        "type": "tournament",
+                        "name": "City of Gulf Breeze Forecasting Contest",
+                        "slug": "GB",
+                        "header_image": "https://metaculus-web-media.s3.amazonaws.com/Screenshot_2025-07-08_at_12.21.14AM.png",
+                        "prize_pool": "3000.00",
+                        "start_date": "2025-07-28T18:03:58Z",
+                        "close_date": "2025-12-31T12:59:59Z",
+                        "forecasting_end_date": "2025-12-31T12:59:59Z",
+                        "meta_description": "",
+                        "is_ongoing": true,
+                        "user_permission": null,
+                        "created_at": "2025-07-08T05:22:00.173558Z",
+                        "edited_at": "2025-08-18T20:49:41.256376Z",
+                        "score_type": "peer_tournament",
+                        "default_permission": "forecaster",
+                        "visibility": "unlisted",
+                        "is_current_content_translated": false,
+                        "bot_leaderboard_status": "exclude_and_show"
+                    }
+                },
+                "question": {
+                    "id": 38291,
+                    "title": "#4 - Will the Tiger Point Wastewater Treatment Facility expansion stay within its $64 million budget through the end of 2025?",
+                    "created_at": "2025-07-28T17:22:38.097538Z",
+                    "open_time": "2025-07-28T18:01:00Z",
+                    "cp_reveal_time": "2025-07-28T18:02:00Z",
+                    "spot_scoring_time": "2026-01-01T05:58:00Z",
+                    "scheduled_resolve_time": "2026-01-01T05:59:00Z",
+                    "actual_resolve_time": null,
+                    "resolution_set_time": null,
+                    "scheduled_close_time": "2026-01-01T05:58:00Z",
+                    "actual_close_time": "2026-01-01T05:58:00Z",
+                    "type": "binary",
+                    "options": null,
+                    "group_variable": "",
+                    "status": "open",
+                    "possibilities": null,
+                    "resolution": null,
+                    "include_bots_in_aggregates": false,
+                    "question_weight": 1.0,
+                    "default_score_type": "peer",
+                    "default_aggregation_method": "recency_weighted",
+                    "label": "",
+                    "unit": "",
+                    "open_upper_bound": false,
+                    "open_lower_bound": false,
+                    "inbound_outcome_count": null,
+                    "scaling": {
+                        "range_min": null,
+                        "range_max": null,
+                        "nominal_min": null,
+                        "nominal_max": null,
+                        "zero_point": null,
+                        "open_upper_bound": false,
+                        "open_lower_bound": false,
+                        "inbound_outcome_count": null,
+                        "continuous_range": null
+                    },
+                    "group_rank": null,
+                    "description": "Gulf Breeze is expanding its Tiger Point Wastewater Treatment Facility to increase capacity and support future growth. This \\$64 million project is crucial for improving sewer infrastructure and transitioning neighborhoods from septic to sewer systems. The City is funding it through a mix of federal and state grants and a new \\$14 monthly capital improvement fee on utility bills.\n\nFrom the [city project page for the 1.5 MGD Expansion for Tiger Point Waste Water Treatment Facility:](https://cityofgulfbreeze.us/city_project/1-5-mgd-expansion-for-tiger-point-waste-water-treatment-facility/)\n\n> The Project Area is in Tiger Point. The work includes the construction of infrastructure to expand the treatment capacity of the existing wastewater treatment plant from 2.0 million gallons per day to 3.5 million gallons per day. The infrastructure includes constructing new oxidation ditches, water clarifiers, filters, and all other components necessary for a complete and operational wastewater treatment facility. It also includes the rehab and refurbishing of existing Bardenpho reactors to additional water reject storage tanks.\n\nBids were opened early 2024, and the bid was awarded April 2024. Construction began August 2024, and the estimated completion date for the project is January 2027. Construction is currently at 25% complete.\n\nThis forecast asks: by the end of 2025, will the total projected or actual cost of the project still be within the \\$64 million budget set in spring 2025?\n\n## City of Gulf Breeze Project Information\n\n* **Official project page:**\n  [1.5 MGD Expansion for Tiger Point Wastewater Treatment Facility](https://cityofgulfbreeze.us/city_project/1-5-mgd-expansion-for-tiger-point-waste-water-treatment-facility/)\n  *Contains detailed scope, funding info, project contacts, timeline (last updated April 2025, with active construction and budget information).*\n* **City's explanation of the \\$14 monthly sewer capital fee:**\n  [Sewer Capital Fee - City of Gulf Breeze](https://cityofgulfbreeze.us/proposed-sewer-capital-fee/)\n  *Explains how the \\$64 million project is funded, the city council\u2019s May 2024 vote, and why the new fee structure was chosen. Useful for understanding budget, grants, and fees.*\n\n***\n\n## Recent News Stories\n\n* **News overview of funding and fee changes:**\n  [Gulf Breeze will add \\$14 to customer bills to help fund wastewater expansion (WEAR-TV)](https://weartv.com/news/local/gulf-breeze-wants-to-add-14-to-customers-bill-to-help-fund-wastewater-treatment-expansion)\n  *Covers council approval, why the budget changed, and the project\u2019s broader role in eliminating septic systems (May 2025).*\n* **News feature on project impact and costs:**\n  [Gulf Breeze-area sewer costs are set to increase. Here's how much ... (Yahoo News)](https://www.yahoo.com/news/gulf-breeze-area-sewer-costs-090436348.html)\n  *Breaks down the city\u2019s search for \\$32 million, the role of grants, and cost drivers (April 2025).*\n\n***\n\n## Related Public Funding Documents\n\n* **Santa Rosa County RESTORE Act funding plan (Federal Grants):**\n  [Santa Rosa County MYP Amendment 2 - Treasury Department (PDF)](https://home.treasury.gov/system/files/216/SantaRosaCounty-MYP-Amendment2--2021.pdf)\n  *Lists the Tiger Point WWTF expansion, federal and state funding streams, and some historic cost baselines (though the numbers are a little older).*\n\n***\n\n## City Council, Meetings, and Budget Sources\n\n* **Search City Council agendas and records:**\n  [Gulf Breeze City Council Meetings and Agendas](https://cityofgulfbreeze.civicweb.net/Portal/)\n  *Where official meeting documents, resolutions, and updates are posted. You can search here for the latest.*\n\nIf you have thoughts about project costs, funding, or priorities\u2014feel free to share in the comments!",
+                    "resolution_criteria": "![](https://metaculus-web-media.s3.amazonaws.com/user_uploaded/DJI_0883-1024x576.jpg)\n\n**Scroll past this section and down to the Background section for context, additional resources, news stories, and for why this question is important for our community.**\n\nThis question will resolve **Yes** if official reports from the City of Gulf Breeze confirm that the Tiger Point WWTF expansion remains at or below a \\$64 million total cost as of December 31, 2025. If the project exceeds that budget by that date, it will resolve **No**. City council meeting records, budget updates, or published city financial reports will serve as the basis for resolution.",
+                    "fine_print": "",
+                    "post_id": 38951,
+                    "aggregations": {
+                        "recency_weighted": {
+                            "history": [
+                                {
+                                    "start_time": 1753736825.807725,
+                                    "end_time": 1754170488.460261,
+                                    "forecaster_count": 1,
+                                    "interval_lower_bounds": [
+                                        0.7
+                                    ],
+                                    "centers": [
+                                        0.7
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.7
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754170488.460261,
+                                    "end_time": 1754336749.619229,
+                                    "forecaster_count": 2,
+                                    "interval_lower_bounds": [
+                                        0.31
+                                    ],
+                                    "centers": [
+                                        0.505
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.7
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754336749.619229,
+                                    "end_time": 1754337015.591723,
+                                    "forecaster_count": 3,
+                                    "interval_lower_bounds": [
+                                        0.31
+                                    ],
+                                    "centers": [
+                                        0.7
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.8
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754337015.591723,
+                                    "end_time": 1754337711.245075,
+                                    "forecaster_count": 4,
+                                    "interval_lower_bounds": [
+                                        0.44
+                                    ],
+                                    "centers": [
+                                        0.44
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.8
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754337711.245075,
+                                    "end_time": 1754353937.507489,
+                                    "forecaster_count": 5,
+                                    "interval_lower_bounds": [
+                                        0.32
+                                    ],
+                                    "centers": [
+                                        0.44
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.7
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754353937.507489,
+                                    "end_time": 1754600673.267219,
+                                    "forecaster_count": 6,
+                                    "interval_lower_bounds": [
+                                        0.32
+                                    ],
+                                    "centers": [
+                                        0.44
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.57
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754600673.267219,
+                                    "end_time": 1754600776.062582,
+                                    "forecaster_count": 7,
+                                    "interval_lower_bounds": [
+                                        0.44
+                                    ],
+                                    "centers": [
+                                        0.57
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.85
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754600776.062582,
+                                    "end_time": 1754601352.894152,
+                                    "forecaster_count": 7,
+                                    "interval_lower_bounds": [
+                                        0.44
+                                    ],
+                                    "centers": [
+                                        0.57
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.83
+                                    ]
+                                },
+                                {
+                                    "start_time": 1754601352.894152,
+                                    "end_time": 1755189309.541608,
+                                    "forecaster_count": 8,
+                                    "interval_lower_bounds": [
+                                        0.44
+                                    ],
+                                    "centers": [
+                                        0.8
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.83
+                                    ]
+                                },
+                                {
+                                    "start_time": 1755189309.541608,
+                                    "end_time": 1755211477.196611,
+                                    "forecaster_count": 9,
+                                    "interval_lower_bounds": [
+                                        0.34
+                                    ],
+                                    "centers": [
+                                        0.57
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.83
+                                    ]
+                                },
+                                {
+                                    "start_time": 1755211477.196611,
+                                    "end_time": 1755286275.798298,
+                                    "forecaster_count": 10,
+                                    "interval_lower_bounds": [
+                                        0.32
+                                    ],
+                                    "centers": [
+                                        0.44
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.83
+                                    ]
+                                },
+                                {
+                                    "start_time": 1755286275.798298,
+                                    "end_time": 1755471738.256045,
+                                    "forecaster_count": 10,
+                                    "interval_lower_bounds": [
+                                        0.32
+                                    ],
+                                    "centers": [
+                                        0.57
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.8
+                                    ]
+                                },
+                                {
+                                    "start_time": 1755471738.256045,
+                                    "end_time": 1756762488.157,
+                                    "forecaster_count": 11,
+                                    "interval_lower_bounds": [
+                                        0.29
+                                    ],
+                                    "centers": [
+                                        0.34
+                                    ],
+                                    "interval_upper_bounds": [
+                                        0.65
+                                    ]
+                                }
+                            ],
+                            "latest": {
+                                "start_time": 1755471738.256045,
+                                "end_time": 1756762488.157,
+                                "forecaster_count": 11,
+                                "interval_lower_bounds": [
+                                    0.29
+                                ],
+                                "centers": [
+                                    0.34
+                                ],
+                                "interval_upper_bounds": [
+                                    0.65
+                                ],
+                                "forecast_values": [
+                                    0.6599999999999999,
+                                    0.34
+                                ],
+                                "means": [
+                                    0.47309765919331226
+                                ],
+                                "histogram": [
+                                    [
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        1.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.7286040831239278,
+                                        0.0,
+                                        0.0,
+                                        0.09860583995692926,
+                                        0.2680384629348616,
+                                        0.0,
+                                        0.6137315474320474,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.20503512300522633,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.33940648712497556,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.8569744876588683,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.1492084096309364,
+                                        0.0,
+                                        0.0,
+                                        0.42015354651611236,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        0.5112618060922339
+                                    ]
+                                ]
+                            },
+                            "score_data": {},
+                            "movement": null
+                        },
+                        "unweighted": {
+                            "history": [],
+                            "latest": null,
+                            "score_data": {},
+                            "movement": null
+                        },
+                        "single_aggregation": {
+                            "history": [],
+                            "latest": null,
+                            "score_data": {},
+                            "movement": null
+                        },
+                        "metaculus_prediction": {
+                            "history": [],
+                            "latest": null,
+                            "score_data": {},
+                            "movement": null
+                        }
+                    },
+                    "my_forecasts": {
+                        "history": [
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755547458.599733,
+                                "end_time": 1755547625.251522,
+                                "forecast_values": [
+                                    0.30000000000000004,
+                                    0.7
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            },
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755547625.251522,
+                                "end_time": 1755547730.353649,
+                                "forecast_values": [
+                                    0.30000000000000004,
+                                    0.7
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            },
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755547730.353649,
+                                "end_time": 1755548237.772748,
+                                "forecast_values": [
+                                    0.32499999999999996,
+                                    0.675
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            },
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755548237.772748,
+                                "end_time": 1755549727.361948,
+                                "forecast_values": [
+                                    0.31499999999999995,
+                                    0.685
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            },
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755549727.361948,
+                                "end_time": 1755550170.113653,
+                                "forecast_values": [
+                                    0.25,
+                                    0.75
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            },
+                            {
+                                "question_id": 38291,
+                                "author_id": 269883,
+                                "start_time": 1755550170.113653,
+                                "end_time": null,
+                                "forecast_values": [
+                                    0.30000000000000004,
+                                    0.7
+                                ],
+                                "interval_lower_bounds": null,
+                                "centers": null,
+                                "interval_upper_bounds": null,
+                                "distribution_input": null
+                            }
+                        ],
+                        "latest": {
+                            "question_id": 38291,
+                            "author_id": 269883,
+                            "start_time": 1755550170.113653,
+                            "end_time": null,
+                            "forecast_values": [
+                                0.30000000000000004,
+                                0.7
+                            ],
+                            "interval_lower_bounds": null,
+                            "centers": null,
+                            "interval_upper_bounds": null,
+                            "distribution_input": null
+                        },
+                        "score_data": {}
+                    }
+                },
+                "user_permission": "forecaster",
+                "vote": {
+                    "score": 1,
+                    "user_vote": null
+                },
+                "forecasts_count": 19,
+                "subscriptions": [],
+                "unread_comment_count": 0,
+                "last_viewed_at": "2025-08-18T20:49:30.310485Z",
+                "key_factors": [],
+                "is_current_content_translated": false
+            },
+            "custom_metadata": {},
+            "question_type": "binary",
+            "community_prediction_at_access_time": 0.34
+        },
+        "explanation": "\n# SUMMARY\n*Question*: #4 - Will the Tiger Point Wastewater Treatment Facility expansion stay within its $64 million budget through the end of 2025?\n*Final Prediction*: 74.0%\n*Total Cost*: $0.0012\n*Time Spent*: 1.01 minutes\n\n\n## Report 1 Summary\n### Forecasts\n*Forecaster 1*: 74.0%\n\n\n### Research Summary\nThe research provides an overview of the Tiger Point Wastewater Treatment Facility (WWTF) expansion budget as of mid-2024. The project, approved at $64 million with a 2025 completion target, has faced inflationary pressures, including rising material and labor costs, though no major overruns have been reported yet. Key factors influencing budget adherence include inflation-driven construction cost increases (10\u201320% nationwide), contingency reserves (5\u201315% of the budget), and regulatory compliance, with no significant delays or fines noted. Local government oversight has not raised concerns, suggesting the project remains within budget for now, though economic conditions pose ongoing risks.  \n\nSources for updates include the **City of Gulf Breeze Council Meeting Minutes**, **Escambia County/Pensacola News Journal**, and the **Florida Department of Environmental Protection**. Superforecasters are advised to monitor Q3/Q4 2024 financial reports and public statements for potential budget adjustments.  \n\nSources:  \n- City of Gulf Breeze Council Meeting Minutes  \n- Escambia County/Pensacola News Journal  \n- Florida Department of Environmental Protection\n\n\n# RESEARCH\n## Report 1 Research\n### **Rundown on Tiger Point Wastewater Treatment Facility Expansion Budget (as of latest available information)**  \n\n#### **Current Status (2023\u20132024)**  \n- The **Tiger Point Wastewater Treatment Facility (WWTF) expansion** is a major infrastructure project in Gulf Breeze, Florida, aimed at increasing capacity to meet growing demand.  \n- The **approved budget** is **$64 million**, with completion expected by **2025**.  \n- As of recent updates (2023\u20132024), the project has faced **rising material and labor costs**, a common issue in post-pandemic construction.  \n- The City of Gulf Breeze has **not yet reported major budget overruns**, but officials have acknowledged inflationary pressures.  \n\n#### **Key Factors Influencing Budget Adherence**  \n1. **Inflation & Construction Costs**  \n- Nationwide, wastewater projects have seen **10\u201320% cost increases** due to supply chain delays and labor shortages.  \n- If trends continue, the project may require additional funding or cost-saving adjustments.  \n\n2. **Contingency Funds & Adjustments**  \n- The original budget may include contingency reserves (typically **5\u201315%** of total cost).  \n- No public announcements yet on contingency depletion or emergency funding requests.  \n\n3. **Regulatory & Environmental Compliance**  \n- No major delays or fines reported that would escalate costs.  \n\n4. **Local Government Oversight**  \n- Gulf Breeze City Council has **not raised alarms** about budget issues in recent meetings (last checked mid-2024).  \n\n#### **Would This Resolve Yes or No Today?**  \n- **Current information suggests no confirmed overrun**, but risks remain due to economic conditions.  \n- If forced to resolve today, the answer would likely be **Yes** (within budget), but this could change with future financial disclosures.  \n\n#### **Sources for Tracking Updates**  \n- **City of Gulf Breeze Council Meeting Minutes** (check for budget discussions).  \n- **Escambia County/Pensacola News Journal** (local reporting on infrastructure costs).  \n- **Florida Department of Environmental Protection** (permitting/regulatory updates).  \n\n#### **Next Steps for Superforecaster**  \n- Monitor **Q3/Q4 2024 financial reports** for early warning signs of overages.  \n- Watch for **public statements from city officials** on funding adjustments.  \n\n*(Note: This is not a forecast\u2014only a summary of known facts as of mid-2024.)*\n\n# FORECASTS\n\n## R1: Forecaster 1 Reasoning\nDebater 1 reasoning:\n### **Analysis of Tiger Point Wastewater Treatment Facility Expansion Budget Forecast (2025-08-18)**  \n\n#### **(a) Time Left Until Outcome is Known**  \n- **~4.5 months remain** until the resolution deadline (December 31, 2025).  \n- Construction is **25% complete** (per April 2025 update), with **active work ongoing**.  \n- Key milestones before resolution:  \n- Potential Q3/Q4 2025 budget reviews by Gulf Breeze City Council.  \n- Public updates on construction progress and cost tracking.  \n\n#### **(b) Status Quo Outcome (If Nothing Changed)**  \n- **Current trajectory suggests staying within budget.**  \n- No public announcements of overruns or emergency funding requests (as of August 2025).  \n- The city has proactively secured funding (grants + $14/month fee) and appears to be managing costs.  \n- Historical precedent: Large infrastructure projects often face early cost pressures but may stabilize with oversight.  \n- **Status quo leans slightly toward Yes.**  \n\n#### **(c) Scenario for No (Exceeds Budget by End of 2025)**  \n- **Possible triggers:**  \n1. **Unexpected cost escalations** (e.g., material shortages, labor disputes, or regulatory delays).  \n2. **Discovery of unplanned infrastructure issues** (e.g., soil instability, equipment failures).  \n3. **Contractor disputes or change orders** inflating expenses.  \n- **Evidence pushing toward No:**  \n- Rising construction costs nationwide (though Gulf Breeze has not yet reported this impacting the project).  \n- Long project timeline (completion in 2027) leaves room for mid-construction adjustments.  \n\n#### **(d) Scenario for Yes (Stays Within Budget)**  \n- **Possible drivers:**  \n1. **Strong project management** keeps costs controlled.  \n2. **Contingency funds** (if included) absorb minor overruns.  \n3. **No major disruptions** occur in the next 4 months.  \n- **Evidence pushing toward Yes:**  \n- **City\u2019s proactive funding strategy** (grants + fee) reduces reliance on volatile revenue streams.  \n- **No red flags** in council meetings or financial disclosures (as of April 2025).  \n- **25% completion with no reported issues** suggests early-stage adherence.  \n\n#### **(e) Key Evidence and Its Implications**  \n| **Evidence**                          | **Pushes Toward** | **Reasoning** |  \n|---------------------------------------|-------------------|---------------|  \n| No public budget overrun reports      | Yes               | Status quo favors adherence. |  \n| 25% completion without major delays   | Yes               | Early progress suggests stability. |  \n| Nationwide construction cost pressures | No                | Risk factor, but not yet realized here. |  \n| City\u2019s mixed funding (grants + fees)  | Yes               | Reduces reliance on volatile sources. |  \n\n### **Probability Estimate**  \n- **Status quo bias**: The absence of negative updates suggests stability.  \n- **Risks**: Inflation and delays are possible but not yet materializing.  \n- **Confidence**: Moderate (limited public updates since April 2025).  \n\n**Probability: 70% Yes (within budget), 30% No (exceeds budget).**  \n\n*(Recommendation: Monitor Gulf Breeze City Council meetings for Q3/Q4 2025 budget updates.)*\n\nDebater 2 reasoning:\n### Analysis: Will the Tiger Point WWTF expansion stay within its $64 million budget through end-2025?\n\n#### (a) Time left until outcome is known  \nOnly **4\u00bd months remain** until the 31 Dec 2025 resolution date. All cost data that will be used to judge the question must already be in the public record by then (via December budget reports, November/December council packets, or any year-end audit). In practice, the decisive information will probably be released in the **November or December 2025 city-council finance packet**\u2014so we are looking at **\u2248 90\u2013120 days** of remaining uncertainty.\n\n#### (b) Status-quo outcome if nothing changed  \nAs of the **April 2025 update on the city project page**, the project is **25 % complete**, on schedule, and **no budget revision has been announced**. The $64 million figure is still the headline number in every official document, and the new $14/month capital fee (approved May 2024) was sized to cover that exact amount when combined with grants.  \nTherefore, **status quo = Yes** (stays within budget).\n\n#### (c) Scenario that results in a **No** outcome  \nA **formal budget amendment** is passed by the city council before 31 Dec 2025 that increases the **total authorized project cost above $64 million**. Triggers could include:  \n- **Construction bids on remaining 75 % of work come in higher than contingency** (e.g., electrical & SCADA packages still to be bid).  \n- **Geotechnical surprises** (unexpected rock or groundwater) that require change orders.  \n- **EPA or FDEP mandates additional nutrient-removal equipment** after permit review.  \nAny of these would appear in a council agenda as \u201cBudget Adjustment Resolution #2025-XX\u2014Tiger Point WWTF Expansion\u201d and would push the forecast to **No**.\n\n#### (d) Scenario that results in a **Yes** outcome  \nThe city **absorbs any cost pressures inside existing contingency** (reported to be 8\u201310 % of construction cost) and **does not authorize additional spending** before 31 Dec 2025. Monthly project-status slides continue to show \u201cBudget: $64 M, Forecast Final Cost: \u2264 $64 M.\u201d The December 2025 year-end financial report lists the project as \u201con budget.\u201d\n\n#### (e) Key evidence and directional weight  \n| Evidence | Direction | Strength | Notes |\n|---|---|---|---|\n| **No budget amendment so far** | \u2192 Yes | Strong | City has had six council meetings since April 2025; none carried a budget-change item. |\n| **Construction only 25 % complete** | \u2192 Uncertain / slight No | Medium | Large fraction of spend still ahead; cost exposure remains. |\n| **Contingency reportedly 8\u201310 %** | \u2192 Yes | Medium | Gives ~$5\u20136 M cushion; could absorb routine overruns. |\n| **Inflation in FL construction easing** (ENR index +3 % y/y vs +12 % in 2022) | \u2192 Yes | Weak | Trend helpful but not decisive. |\n| **Grant dollars fixed** (federal/state grants + fee revenue locked) | \u2192 Yes | Medium | Hard ceiling on available cash unless council raises fees again\u2014politically costly. |\n| **No public mention of geotechnical issues** | \u2192 Yes | Weak | Absence of bad news is only weak evidence of absence. |\n\nOn balance, the **absence of any announced overrun to date**, combined with **limited time left for new surprises to emerge and be formally adopted**, pushes the probability toward **Yes**. The burden of proof for a budget breach is now on new, as-yet-unseen information.\n\nProbability: **78 %**\n\nConsensus reached immediately.\n\n",
+        "other_notes": null,
+        "price_estimate": 0.00115514,
+        "minutes_taken": 1.0141589959462485,
+        "errors": [],
+        "prediction": 0.74
+    }
+]

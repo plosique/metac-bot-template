@@ -1412,28 +1412,42 @@ if __name__ == "__main__":
     parser.add_argument(
         "--bot-mode",
         type=str,
-        choices=["template", "debug", "main"],
+        choices=["template", "debug", "main", "debug_with_researcher", "main_with_researcher"],
         default="template",
         help="Specify the bot mode (default: template)",
     )
+    parser.add_argument(
+        "--research-reports",
+        type=int,
+        default=1,
+        help="Number of research reports per question (default: 1)",
+    )
+    parser.add_argument(
+        "--predictions-per-research",
+        type=int,
+        default=1,
+        help="Number of predictions per research report (default: 1)",
+    )
     args = parser.parse_args()
     run_mode: Literal["tournament", "metaculus_cup", "test_questions", "local_binary"] = args.mode
-    bot_mode: Literal["template", "debug", "main"] = args.bot_mode
+    bot_mode: Literal["template", "debug", "main", "debug_with_researcher", "main_with_researcher"] = args.bot_mode
+    research_reports: int = args.research_reports
+    predictions_per_research: int = args.predictions_per_research
     assert run_mode in [
         "tournament",
         "metaculus_cup",
         "test_questions",
         "local_binary",
     ], "Invalid run mode"
-    assert bot_mode in ["template", "debug", "main"], "Invalid bot mode"
+    assert bot_mode in ["template", "debug", "main", "debug_with_researcher", "main_with_researcher"], "Invalid bot mode"
 
     # Load bot configuration based on mode
     llm_config = load_bot_config(bot_mode)
     logger.info(f"Loaded llm_config for bot_mode '{bot_mode}': {llm_config}")
     
     template_bot = FallTemplateBot2025(
-        research_reports_per_question=1,
-        predictions_per_research_report=1,
+        research_reports_per_question=research_reports,
+        predictions_per_research_report=predictions_per_research,
         use_research_summary_to_forecast=False,
         publish_reports_to_metaculus=True,
         folder_to_save_reports_to="./debate_reports",

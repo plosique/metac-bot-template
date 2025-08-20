@@ -12,6 +12,18 @@ on:
         - template
         - debug
         - main
+        - debug_with_researcher
+        - main_with_researcher
+      research_reports:
+        description: 'Number of research reports per question'
+        required: false
+        default: '1'
+        type: string
+      predictions_per_research:
+        description: 'Number of predictions per research report'
+        required: false
+        default: '1'
+        type: string
   schedule:
     - cron: "0 0 */2 * *" # runs at midnight every 2 days
 
@@ -42,7 +54,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Run bot
         run: |
-          poetry run python main.py --mode metaculus_cup --bot-mode ${{ inputs.bot_mode || 'debug' }}
+          poetry run python main.py --mode metaculus_cup --bot-mode ${{ inputs.bot_mode || 'debug' }} --research-reports ${{ inputs.research_reports || '1' }} --predictions-per-research ${{ inputs.predictions_per_research || '1' }}
         # this reads the environment variables from the github repository.
         # Store under Settings --> Secrets and variables --> Actions
         env:

@@ -1,0 +1,4 @@
+predictor_main openrouter/openai/gpt-5-chat
+predictor_debug openrouter/deepseek/deepseek-chat-v3-0324
+parser_main openrouter/deepseek/deepseek-chat-v3-0324
+parser_debug openrouter/deepseek/deepseek-chat-v3-0324

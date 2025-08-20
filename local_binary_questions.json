@@ -1,0 +1,11 @@
+[
+    {
+        "id": "local_001",
+        "question_text": "Will Donald Trump be President in February 2029?",
+        "background_info": "Donald Trump was the Republican nominee in 2016, 2020, and 2024, winning in 2016, losing in 2020, and winning again in 2024. He is currently serving as President starting in January 2025. The 22nd Amendment prevents someone from being elected to the office of President more than twice, but there's ongoing constitutional debate about whether this applies to non-consecutive terms.",
+        "resolution_criteria": "This question will resolve Yes if Donald Trump is serving as President of the United States in February 2029. This question will resolve No if Trump is not President in February 2029 for any reason (including losing the 2028 election, constitutional ineligibility, resignation, death, impeachment and removal, etc.).",
+        "fine_print": "",
+        "closes_at": "2029-02-01T00:00:00Z",
+        "resolves_at": "2029-02-01T00:00:00Z"
+    }
+]
