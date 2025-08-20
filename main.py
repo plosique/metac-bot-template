@@ -1489,7 +1489,7 @@ if __name__ == "__main__":
     elif run_mode == "metaculus_cup":
         # The Metaculus cup is a good way to test the bot's performance on regularly open questions. You can also use AXC_2025_TOURNAMENT_ID = 32564 or AI_2027_TOURNAMENT_ID = "ai-2027"
         # The Metaculus cup may not be initialized near the beginning of a season (i.e. January, May, September)
-        template_bot.skip_previously_forecasted_questions = False
+        template_bot.skip_previously_forecasted_questions = True
         forecast_reports = asyncio.run(
             template_bot.forecast_on_tournament(
                 MetaculusApi.CURRENT_METACULUS_CUP_ID, return_exceptions=True
