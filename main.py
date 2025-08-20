@@ -188,6 +188,9 @@ class FallTemplateBot2025(ForecastBot):
                 Question:
                 {question.question_text}
 
+                Background information:
+                {question.background_info}
+
                 This question's outcome will be determined by the specific criteria below:
                 {question.resolution_criteria}
 
@@ -1402,7 +1405,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--mode",
         type=str,
-        choices=["tournament", "metaculus_cup", "test_questions"],
+        choices=["tournament", "metaculus_cup", "test_questions", "local_binary"],
         default="tournament",
         help="Specify the run mode (default: tournament)",
     )
@@ -1414,12 +1417,13 @@ if __name__ == "__main__":
         help="Specify the bot mode (default: template)",
     )
     args = parser.parse_args()
-    run_mode: Literal["tournament", "metaculus_cup", "test_questions"] = args.mode
+    run_mode: Literal["tournament", "metaculus_cup", "test_questions", "local_binary"] = args.mode
     bot_mode: Literal["template", "debug", "main"] = args.bot_mode
     assert run_mode in [
         "tournament",
         "metaculus_cup",
         "test_questions",
+        "local_binary",
     ], "Invalid run mode"
     assert bot_mode in ["template", "debug", "main"], "Invalid bot mode"
 
@@ -1494,4 +1498,44 @@ if __name__ == "__main__":
         forecast_reports = asyncio.run(
             template_bot.forecast_questions(questions, return_exceptions=True)
         )
+    elif run_mode == "local_binary":
+        # Load local binary questions from JSON file
+        import json
+        from datetime import datetime
+        
+        try:
+            with open("local_binary_questions.json", "r") as f:
+                local_questions_data = json.load(f)
+        except FileNotFoundError:
+            logger.error("local_binary_questions.json not found. Please create this file with your binary questions.")
+            exit(1)
+        
+        # Convert JSON data to BinaryQuestion objects
+        questions = []
+        for q_data in local_questions_data:
+            # Create a mock BinaryQuestion-like object
+            question = BinaryQuestion(
+                id=q_data.get("id", "local"),
+                question_text=q_data["question_text"],
+                background_info=q_data.get("background_info", ""),
+                resolution_criteria=q_data.get("resolution_criteria", ""),
+                fine_print=q_data.get("fine_print", ""),
+                page_url=f"local://binary/{q_data.get('id', 'unknown')}",
+                # Set dates if provided, otherwise use distant future
+                scheduled_resolve_time=datetime.fromisoformat(q_data.get("resolves_at", "2030-01-01T00:00:00Z").replace('Z', '+00:00')) if q_data.get("resolves_at") else datetime(2030, 1, 1),
+                scheduled_close_time=datetime.fromisoformat(q_data.get("closes_at", "2029-01-01T00:00:00Z").replace('Z', '+00:00')) if q_data.get("closes_at") else datetime(2029, 1, 1),
+            )
+            questions.append(question)
+        
+        template_bot.skip_previously_forecasted_questions = False
+        template_bot.publish_reports_to_metaculus = False  # Don't submit to Metaculus
+        
+        logger.info(f"Loaded {len(questions)} local binary questions")
+        for q in questions:
+            logger.info(f"- {q.question_text}")
+        
+        forecast_reports = asyncio.run(
+            template_bot.forecast_questions(questions, return_exceptions=True)
+        )
+    
     template_bot.log_report_summary(forecast_reports)
