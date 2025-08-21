@@ -1451,7 +1451,7 @@ if __name__ == "__main__":
         use_research_summary_to_forecast=False,
         publish_reports_to_metaculus=True,
         folder_to_save_reports_to="./debate_reports",
-        skip_previously_forecasted_questions=False,
+        skip_previously_forecasted_questions=True,
         llms=llm_config if llm_config else None,
     )
     
@@ -1541,7 +1541,7 @@ if __name__ == "__main__":
             )
             questions.append(question)
         
-        template_bot.skip_previously_forecasted_questions = False
+        template_bot.skip_previously_forecasted_questions = True
         template_bot.publish_reports_to_metaculus = False  # Don't submit to Metaculus
         
         logger.info(f"Loaded {len(questions)} local binary questions")
