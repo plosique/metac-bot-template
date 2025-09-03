@@ -1428,11 +1428,17 @@ if __name__ == "__main__":
         default=1,
         help="Number of predictions per research report (default: 1)",
     )
+    parser.add_argument(
+        "--skip-previously-forecasted",
+        action="store_true",
+        help="Skip questions that have been previously forecasted on (default: False)",
+    )
     args = parser.parse_args()
     run_mode: Literal["tournament", "metaculus_cup", "test_questions", "local_binary"] = args.mode
     bot_mode: Literal["template", "debug", "main", "debug_with_researcher", "main_with_researcher"] = args.bot_mode
     research_reports: int = args.research_reports
     predictions_per_research: int = args.predictions_per_research
+    skip_previously_forecasted: bool = args.skip_previously_forecasted
     assert run_mode in [
         "tournament",
         "metaculus_cup",
@@ -1489,7 +1495,6 @@ if __name__ == "__main__":
     elif run_mode == "metaculus_cup":
         # The Metaculus cup is a good way to test the bot's performance on regularly open questions. You can also use AXC_2025_TOURNAMENT_ID = 32564 or AI_2027_TOURNAMENT_ID = "ai-2027"
         # The Metaculus cup may not be initialized near the beginning of a season (i.e. January, May, September)
-        template_bot.skip_previously_forecasted_questions = True
         forecast_reports = asyncio.run(
             template_bot.forecast_on_tournament(
                 MetaculusApi.CURRENT_METACULUS_CUP_ID, return_exceptions=True
@@ -1504,7 +1509,6 @@ if __name__ == "__main__":
             "https://www.metaculus.com/questions/22427/number-of-new-leading-ai-labs/",  # Number of New Leading AI Labs - Multiple Choice
             #"https://www.metaculus.com/c/diffusion-community/38880/how-many-us-labor-strikes-due-to-ai-in-2029/",  # Number of US Labor Strikes Due to AI in 2029 - Discrete
         ]
-        template_bot.skip_previously_forecasted_questions = False
         questions = [
             MetaculusApi.get_question_by_url(question_url)
             for question_url in EXAMPLE_QUESTIONS
