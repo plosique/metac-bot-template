@@ -27,7 +27,7 @@ on:
       skip_previously_forecasted:
         description: 'Skip questions that have been previously forecasted on'
         required: false
-        default: false
+        default: true
         type: boolean
   schedule:
     - cron: "*/20 * * * *" # runs every 20 minutes. Make sure to skip already forecasted questions!
