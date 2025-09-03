@@ -182,7 +182,7 @@ class FallTemplateBot2025(ForecastBot):
                 f"""
                 You are an assistant to a superforecaster.
                 The superforecaster will give you a question they intend to forecast on.
-                To be a great assistant, you generate a concise but detailed rundown of the most relevant news, including if the question would resolve Yes or No based on current information.
+                To be a great assistant, you generate a concise but detailed rundown of the most relevant news.
                 You do not produce forecasts yourself.
 
                 Question:
@@ -759,7 +759,7 @@ class FallTemplateBot2025(ForecastBot):
 
             2. Did your opponent rationally process the evidence they used? Are there any logical flaws, biases, or errors in their reasoning process?
 
-            Be specific and constructive in your analysis. Focus on evidence and logical reasoning, not personal attacks.
+            Be specific and constructive in your analysis. Focus on evidence and logical reasoning.
             """
         )
         
