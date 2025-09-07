@@ -2,13 +2,13 @@
   "template": {},
   "debug": {
     "researcher": {
-      "model": "openrouter/deepseek/deepseek-chat-v3-0324",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.1,
       "timeout": 40,
       "allowed_tries": 2
     },
     "debater1": {
-      "model": "openrouter/deepseek/deepseek-chat-v3-0324",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.3,
       "timeout": 40,
       "allowed_tries": 2
@@ -19,8 +19,8 @@
       "timeout": 40,
       "allowed_tries": 2
     },
-    "parser": "openrouter/deepseek/deepseek-chat-v3-0324",
-    "summarizer": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "parser": "openrouter/openai/gpt-4o-mini",
+    "summarizer": "openrouter/openai/gpt-4o-mini",
     "debate_config": {
       "max_turns": 3,
       "kl_threshold": 0.01
@@ -28,13 +28,13 @@
   },
   "debug_with_researcher": {
     "researcher": {
-      "model": "perplexity/sonar",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.1,
       "timeout": 40,
       "allowed_tries": 2
     },
     "debater1": {
-      "model": "openrouter/deepseek/deepseek-chat-v3-0324",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.3,
       "timeout": 40,
       "allowed_tries": 2
@@ -45,8 +45,8 @@
       "timeout": 40,
       "allowed_tries": 2
     },
-    "parser": "openrouter/deepseek/deepseek-chat-v3-0324",
-    "summarizer": "openrouter/deepseek/deepseek-chat-v3-0324",
+    "parser": "openrouter/openai/gpt-4o-mini",
+    "summarizer": "openrouter/openai/gpt-4o-mini",
     "debate_config": {
       "max_turns": 3,
       "kl_threshold": 0.01
@@ -54,7 +54,7 @@
   },
   "main": {
     "researcher": {
-      "model": "openrouter/deepseek/deepseek-chat-v3-0324",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.1,
       "timeout": 40,
       "allowed_tries": 2
@@ -80,7 +80,7 @@
   },
   "main_with_researcher": {
     "researcher": {
-      "model": "perplexity/sonar",
+      "model": "openrouter/openai/gpt-4o-mini",
       "temperature": 0.1,
       "timeout": 40,
       "allowed_tries": 2
@@ -92,7 +92,7 @@
       "allowed_tries": 2
     },
     "debater2": {
-      "model": "openrouter/anthropic/claude-opus-4.1",
+      "model": "openrouter/openai/gpt-5-chat",
       "temperature": 0.4,
       "timeout": 40,
       "allowed_tries": 2
@@ -101,7 +101,7 @@
     "summarizer": "openrouter/openai/gpt-4o-mini",
     "debate_config": {
       "max_turns": 3,
-      "kl_threshold": 0.1
+      "kl_threshold": 0.03
     }
   }
 }
