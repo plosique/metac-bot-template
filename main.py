@@ -28,6 +28,10 @@ from forecasting_tools import (
 
 logger = logging.getLogger(__name__)
 
+# Enable debug logging for forecasting_tools models
+logging.getLogger("forecasting_tools.ai_models.general_llm").setLevel(logging.DEBUG)
+logging.getLogger("LiteLLM").setLevel(logging.DEBUG)
+
 
 @dataclass
 class DebateResult:
@@ -249,15 +253,29 @@ class FallTemplateBot2025(ForecastBot):
         logger.info(f"Starting debate: Debater1={debater1_model} vs Debater2={debater2_model}")
         
         # Initial debate round
-        debater1_result = await self._get_initial_debate_position(question, research, "debater1", 1)
-        debater2_result = await self._get_initial_debate_position(question, research, "debater2", 2)
+        logger.debug("About to call debater1 for initial position")
+        try:
+            debater1_result = await self._get_initial_debate_position(question, research, "debater1", 1)
+            logger.debug(f"Debater1 completed successfully: {debater1_result.prediction:.4f}")
+        except Exception as e:
+            logger.error(f"Debater1 failed: {e}")
+            raise
+        
+        logger.debug("About to call debater2 for initial position")
+        try:
+            debater2_result = await self._get_initial_debate_position(question, research, "debater2", 2)
+            logger.debug(f"Debater2 completed successfully: {debater2_result.prediction:.4f}")
+        except Exception as e:
+            logger.error(f"Debater2 failed: {e}")
+            raise
         
         logger.info(f"Initial positions - Debater1: {debater1_result.prediction:.4f}, Debater2: {debater2_result.prediction:.4f}")
         
         # Check for immediate consensus using KL divergence
         if self._check_consensus_kl_divergence(debater1_result.prediction, debater2_result.prediction, debate_config.kl_threshold):
             final_prediction = (debater1_result.prediction + debater2_result.prediction) / 2
-            combined_reasoning = f"Debater 1 reasoning:\n{debater1_result.reasoning}\n\nDebater 2 reasoning:\n{debater2_result.reasoning}\n\nConsensus reached immediately."
+            logger.info(f"DEBATE COMPLETE: Consensus reached immediately (0 turns) - Final: {final_prediction:.4f}")
+            combined_reasoning = f"Debater 1 reasoning:\n{debater1_result.reasoning}\n\nDebater 2 reasoning:\n{debater2_result.reasoning}\n\nConsensus reached immediately (0 turns)."
             return ReasonedPrediction(prediction_value=final_prediction, reasoning=combined_reasoning)
         
         # Run debate turns
@@ -284,6 +302,7 @@ class FallTemplateBot2025(ForecastBot):
             # Check for consensus using KL divergence
             if self._check_consensus_kl_divergence(debater1_result.prediction, debater2_result.prediction, debate_config.kl_threshold):
                 final_prediction = (debater1_result.prediction + debater2_result.prediction) / 2
+                logger.info(f"DEBATE COMPLETE: Consensus reached after {turn} turns - Final: {final_prediction:.4f}")
                 combined_reasoning = self._combine_debate_reasoning(current_results, f"Consensus reached after {turn} turns.")
                 return ReasonedPrediction(prediction_value=final_prediction, reasoning=combined_reasoning)
         
@@ -291,7 +310,7 @@ class FallTemplateBot2025(ForecastBot):
         final_prediction = (current_results[0].prediction + current_results[1].prediction) / 2
         combined_reasoning = self._combine_debate_reasoning(current_results, f"No consensus after {debate_config.max_turns} turns. Using midpoint.")
         
-        logger.info(f"Final prediction (midpoint): {final_prediction}")
+        logger.info(f"DEBATE COMPLETE: No consensus after {debate_config.max_turns} turns - Using midpoint: {final_prediction:.4f}")
         return ReasonedPrediction(prediction_value=final_prediction, reasoning=combined_reasoning)
 
     async def _run_debate_on_multiple_choice(
@@ -1150,215 +1169,32 @@ class FallTemplateBot2025(ForecastBot):
     async def _run_forecast_on_binary(
         self, question: BinaryQuestion, research: str
     ) -> ReasonedPrediction[float]:
-        """Run forecasting on binary question using debate system if debaters are configured"""
-        # Check if debate system is configured by trying to get debater LLMs
-        try:
-            debater1_llm = self.get_llm("debater1")
-            debater2_llm = self.get_llm("debater2")
-            logger.info(f"Using debate system for URL {question.page_url}")
-            return await self._run_debate_on_binary(question, research)
-        except Exception as e:
-            # Fall back to original single-forecaster method
-            logger.info(f"Using single forecaster for URL {question.page_url} (debaters not available): {e}")
-        
-        # Single forecaster fallback
-        prompt = clean_indents(
-            f"""
-            You are a professional forecaster interviewing for a job.
-
-            Your interview question is:
-            {question.question_text}
-
-            Question background:
-            {question.background_info}
-
-
-            This question's outcome will be determined by the specific criteria below. These criteria have not yet been satisfied:
-            {question.resolution_criteria}
-
-            {question.fine_print}
-
-
-            Your research assistant says:
-            {research}
-
-            Today is {datetime.now().strftime("%Y-%m-%d")}.
-
-            Before answering you write:
-            (a) The time left until the outcome to the question is known.
-            (b) The status quo outcome if nothing changed.
-            (c) A brief description of a scenario that results in a No outcome.
-            (d) A brief description of a scenario that results in a Yes outcome.
-
-            You write your rationale remembering that good forecasters put extra weight on the status quo outcome since the world changes slowly most of the time.
-
-            The last thing you write is your final answer as: "Probability: ZZ%", 0-100
-            """
-        )
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
-        logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        binary_prediction: BinaryPrediction = await structure_output(
-            reasoning, BinaryPrediction, model=self.get_llm("parser", "llm")
-        )
-        decimal_pred = max(0.01, min(0.99, binary_prediction.prediction_in_decimal))
-
-        logger.info(
-            f"Forecasted URL {question.page_url} with prediction: {decimal_pred}"
-        )
-        return ReasonedPrediction(prediction_value=decimal_pred, reasoning=reasoning)
+        """Run forecasting on binary question using debate system"""
+        # Ensure debate system is configured
+        debater1_llm = self.get_llm("debater1")
+        debater2_llm = self.get_llm("debater2")
+        logger.info(f"Using debate system for URL {question.page_url}")
+        return await self._run_debate_on_binary(question, research)
 
     async def _run_forecast_on_multiple_choice(
         self, question: MultipleChoiceQuestion, research: str
     ) -> ReasonedPrediction[PredictedOptionList]:
-        # Check if debate system is configured by trying to get debater LLMs
-        try:
-            debater1_llm = self.get_llm("debater1")
-            debater2_llm = self.get_llm("debater2")
-            logger.info(f"Using debate system for multiple choice URL {question.page_url}")
-            return await self._run_debate_on_multiple_choice(question, research)
-        except Exception as e:
-            # Fall back to original single-forecaster method
-            logger.info(f"Using single forecaster for multiple choice URL {question.page_url} (debaters not available): {e}")
-        
-        # Single forecaster fallback
-        prompt = clean_indents(
-            f"""
-            You are a professional forecaster interviewing for a job.
-
-            Your interview question is:
-            {question.question_text}
-
-            The options are: {question.options}
-
-
-            Background:
-            {question.background_info}
-
-            {question.resolution_criteria}
-
-            {question.fine_print}
-
-
-            Your research assistant says:
-            {research}
-
-            Today is {datetime.now().strftime("%Y-%m-%d")}.
-
-            Before answering you write:
-            (a) The time left until the outcome to the question is known.
-            (b) The status quo outcome if nothing changed.
-            (c) A description of an scenario that results in an unexpected outcome.
-
-            You write your rationale remembering that (1) good forecasters put extra weight on the status quo outcome since the world changes slowly most of the time, and (2) good forecasters leave some moderate probability on most options to account for unexpected outcomes.
-
-            IMPORTANT: All probabilities must be between 0.001 and 0.999 and sum to 1.0.
-
-            The last thing you write is your final probabilities for the N options in this order {question.options} as:
-            Option_A: Probability_A
-            Option_B: Probability_B
-            ...
-            Option_N: Probability_N
-            """
-        )
-        parsing_instructions = clean_indents(
-            f"""
-            Make sure that all option names are one of the following:
-            {question.options}
-            The text you are parsing may prepend these options with some variation of "Option" which you should remove if not part of the option names I just gave you.
-            """
-        )
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
-        logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        predicted_option_list: PredictedOptionList = await structure_output(
-            text_to_structure=reasoning,
-            output_type=PredictedOptionList,
-            model=self.get_llm("parser", "llm"),
-            additional_instructions=parsing_instructions,
-        )
-        logger.info(
-            f"Forecasted URL {question.page_url} with prediction: {predicted_option_list}"
-        )
-        return ReasonedPrediction(
-            prediction_value=predicted_option_list, reasoning=reasoning
-        )
+        """Run forecasting on multiple choice question using debate system"""
+        # Ensure debate system is configured
+        debater1_llm = self.get_llm("debater1")
+        debater2_llm = self.get_llm("debater2")
+        logger.info(f"Using debate system for multiple choice URL {question.page_url}")
+        return await self._run_debate_on_multiple_choice(question, research)
 
     async def _run_forecast_on_numeric(
         self, question: NumericQuestion, research: str
     ) -> ReasonedPrediction[NumericDistribution]:
-        # Check if debate system is configured by trying to get debater LLMs
-        try:
-            debater1_llm = self.get_llm("debater1")
-            debater2_llm = self.get_llm("debater2")
-            logger.info(f"Using debate system for numeric URL {question.page_url}")
-            return await self._run_debate_on_numeric(question, research)
-        except Exception as e:
-            # Fall back to original single-forecaster method
-            logger.info(f"Using single forecaster for numeric URL {question.page_url} (debaters not available): {e}")
-        
-        # Single forecaster fallback
-        upper_bound_message, lower_bound_message = (
-            self._create_upper_and_lower_bound_messages(question)
-        )
-        prompt = clean_indents(
-            f"""
-            You are a professional forecaster interviewing for a job.
-
-            Your interview question is:
-            {question.question_text}
-
-            Background:
-            {question.background_info}
-
-            {question.resolution_criteria}
-
-            {question.fine_print}
-
-            Units for answer: {question.unit_of_measure if question.unit_of_measure else "Not stated (please infer this)"}
-
-            Your research assistant says:
-            {research}
-
-            Today is {datetime.now().strftime("%Y-%m-%d")}.
-
-            {lower_bound_message}
-            {upper_bound_message}
-
-            Formatting Instructions:
-            - Please notice the units requested (e.g. whether you represent a number as 1,000,000 or 1 million).
-            - Never use scientific notation.
-            - Always start with a smaller number (more negative if negative) and then increase from there
-
-            Before answering you write:
-            (a) The time left until the outcome to the question is known.
-            (b) The outcome if nothing changed.
-            (c) The outcome if the current trend continued.
-            (d) The expectations of experts and markets.
-            (e) A brief description of an unexpected scenario that results in a low outcome.
-            (f) A brief description of an unexpected scenario that results in a high outcome.
-
-            You remind yourself that good forecasters are humble and set wide 90/10 confidence intervals to account for unknown unknowns.
-
-            The last thing you write is your final answer as:
-            "
-            Percentile 10: XX
-            Percentile 20: XX
-            Percentile 40: XX
-            Percentile 60: XX
-            Percentile 80: XX
-            Percentile 90: XX
-            "
-            """
-        )
-        reasoning = await self.get_llm("default", "llm").invoke(prompt)
-        logger.info(f"Reasoning for URL {question.page_url}: {reasoning}")
-        percentile_list: list[Percentile] = await structure_output(
-            reasoning, list[Percentile], model=self.get_llm("parser", "llm")
-        )
-        prediction = NumericDistribution.from_question(percentile_list, question)
-        logger.info(
-            f"Forecasted URL {question.page_url} with prediction: {prediction.declared_percentiles}"
-        )
-        return ReasonedPrediction(prediction_value=prediction, reasoning=reasoning)
+        """Run forecasting on numeric question using debate system"""
+        # Ensure debate system is configured
+        debater1_llm = self.get_llm("debater1")
+        debater2_llm = self.get_llm("debater2")
+        logger.info(f"Using debate system for numeric URL {question.page_url}")
+        return await self._run_debate_on_numeric(question, research)
 
     def _create_upper_and_lower_bound_messages(
         self, question: NumericQuestion
@@ -1506,8 +1342,8 @@ if __name__ == "__main__":
             #"https://www.metaculus.com/questions/578/human-extinction-by-2100/",  # Human Extinction - Binary
             #"https://www.metaculus.com/questions/38951/4-will-the-tiger-point-wastewater-treatment-facility-expansion-stay-in-budget/",
             #"https://www.metaculus.com/questions/14333/age-of-oldest-human-as-of-2100/",  # Age of Oldest Human - Numeric
-            "https://www.metaculus.com/questions/22427/number-of-new-leading-ai-labs/",  # Number of New Leading AI Labs - Multiple Choice
-            #"https://www.metaculus.com/c/diffusion-community/38880/how-many-us-labor-strikes-due-to-ai-in-2029/",  # Number of US Labor Strikes Due to AI in 2029 - Discrete
+            #"https://www.metaculus.com/questions/22427/number-of-new-leading-ai-labs/",  # Number of New Leading AI Labs - Multiple Choice
+            "https://www.metaculus.com/c/diffusion-community/38880/how-many-us-labor-strikes-due-to-ai-in-2029/",  # Number of US Labor Strikes Due to AI in 2029 - Discrete
         ]
         questions = [
             MetaculusApi.get_question_by_url(question_url)
