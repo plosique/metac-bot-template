@@ -66,7 +66,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Run bot
         run: |
-          poetry run python main.py --bot-mode ${{ inputs.bot_mode || 'main_with_researcher' }} --research-reports ${{ inputs.research_reports || '1' }} --predictions-per-research ${{ inputs.predictions_per_research || '1' }} ${{ inputs.skip_previously_forecasted && '--skip-previously-forecasted' || '' }}
+          poetry run python main_test.py --mode tournament
         # this reads the environment variables from the github repository.
         # Store under Settings --> Secrets and variables --> Actions
         env:
