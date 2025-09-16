@@ -2,33 +2,6 @@ name: Forecast on new AI tournament questions
 
 on:
   workflow_dispatch:
-    inputs:
-      bot_mode:
-        description: 'Bot configuration mode'
-        required: false
-        default: 'main_with_researcher'
-        type: choice
-        options:
-        - template
-        - debug
-        - main
-        - debug_with_researcher
-        - main_with_researcher
-      research_reports:
-        description: 'Number of research reports per question'
-        required: false
-        default: '1'
-        type: string
-      predictions_per_research:
-        description: 'Number of predictions per research report'
-        required: false
-        default: '3'
-        type: string
-      skip_previously_forecasted:
-        description: 'Skip questions that have been previously forecasted on'
-        required: false
-        default: true
-        type: boolean
   schedule:
     - cron: "*/20 * * * *" # runs every 20 minutes. Make sure to skip already forecasted questions!
 
